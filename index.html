@@ -1,104 +1,309 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>About | Elite Start Company</title>
+<title>Elite Start Company</title>
 
 <style>
-body{
-    font-family: Arial, sans-serif;
+
+*{
     margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
     background:#f4f6f9;
+    color:#222;
+    line-height:1.6;
 }
 
 /* HEADER */
+
 header{
-    background:#0c2d57;
+    background:#0d1b2a;
     color:white;
-    padding:15px;
+    padding:15px 8%;
     display:flex;
     justify-content:space-between;
     align-items:center;
+    flex-wrap:wrap;
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-header img{
-    height:60px;
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo img{
+    width:65px;
+}
+
+.logo h1{
+    font-size:24px;
+}
+
+nav{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
 }
 
 nav a{
-    color:white;
-    margin:0 10px;
     text-decoration:none;
-    font-weight:bold;
+    color:white;
+    padding:10px 18px;
+    border-radius:5px;
+    transition:0.3s;
+    background:#1b263b;
 }
 
 nav a:hover{
-    text-decoration:underline;
+    background:#415a77;
 }
 
-/* SECTION */
-.section{
-    padding:50px;
+/* HERO */
+
+.hero{
+    background:linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('images/logoo.png');
+    background-size:cover;
+    background-position:center;
+    color:white;
     text-align:center;
+    padding:120px 8%;
 }
 
-.section h2{
-    color:#0c2d57;
+.hero h2{
+    font-size:50px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:800px;
+    margin:auto;
+    font-size:18px;
+}
+
+.hero button{
+    margin-top:25px;
+    padding:14px 30px;
+    border:none;
+    background:#fca311;
+    color:white;
+    font-size:16px;
+    border-radius:6px;
+    cursor:pointer;
+}
+
+/* ABOUT */
+
+.section{
+    padding:70px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-title h2{
+    font-size:38px;
+    color:#0d1b2a;
+}
+
+.about-box{
+    background:white;
+    padding:40px;
+    border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
 }
 
 /* STAFF */
+
 .staff-container{
-    display:flex;
-    justify-content:center;
-    gap:40px;
-    flex-wrap:wrap;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:30px;
 }
 
 .staff-card{
     background:white;
-    padding:20px;
-    border-radius:8px;
-    box-shadow:0 0 10px rgba(0,0,0,0.1);
+    padding:25px;
+    text-align:center;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
 }
 
 .staff-card img{
-    width:150px;
-    height:150px;
-    object-fit:cover;
-}
-
-/* TEST IMAGES */
-.test-container{
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
-}
-
-.test-container img{
-    width:200px;
-    height:140px;
+    width:180px;
+    height:180px;
     object-fit:cover;
     border-radius:8px;
+    margin-bottom:15px;
+}
+
+/* IMPACT */
+
+.impact{
+    background:#0d1b2a;
+    color:white;
+}
+
+.impact-container{
+    display:flex;
+    justify-content:center;
+    gap:80px;
+    flex-wrap:wrap;
+    text-align:center;
+}
+
+.counter-box h3{
+    font-size:55px;
+    color:#fca311;
+}
+
+.counter-box p{
+    font-size:20px;
+}
+
+/* SEARCH */
+
+.search-box{
+    text-align:center;
+}
+
+.search-box input{
+    width:320px;
+    padding:14px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:16px;
+}
+
+.search-box button{
+    padding:14px 25px;
+    border:none;
+    background:#0d1b2a;
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
+    margin-left:10px;
+}
+
+.result{
+    margin-top:30px;
+    display:none;
+}
+
+.result-card{
+    background:white;
+    max-width:450px;
+    margin:auto;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.status{
+    color:green;
+    font-weight:bold;
+}
+
+/* TESTIMONIALS */
+
+.testimonial-container{
+    position:relative;
+    max-width:800px;
+    margin:auto;
+    overflow:hidden;
+}
+
+.testimonial-slide{
+    display:none;
+    background:white;
+    padding:40px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.testimonial-slide.active{
+    display:block;
+}
+
+.testimonial-slide img{
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:20px;
+}
+
+/* CONTACT */
+
+.contact{
+    background:#1b263b;
+    color:white;
+}
+
+.contact p{
+    margin:12px 0;
+    font-size:17px;
 }
 
 /* FOOTER */
+
 footer{
-    background:#0c2d57;
+    background:#0d1b2a;
     color:white;
     text-align:center;
-    padding:15px;
+    padding:20px;
 }
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.hero h2{
+    font-size:35px;
+}
+
+nav{
+    margin-top:15px;
+}
+
+.search-box input{
+    width:100%;
+    margin-bottom:15px;
+}
+
+.search-box button{
+    margin-left:0;
+    width:100%;
+}
+
+}
+
 </style>
 </head>
-
 <body>
 
 <!-- HEADER -->
+
 <header>
-<img src="images/logoo.png" alt="Elite Start Logo">
+
+<div class="logo">
+<img src="images/logoo.png" alt="">
+<h1>Elite Start</h1>
+</div>
 
 <nav>
 <a href="index.html">Home</a>
@@ -106,84 +311,263 @@ footer{
 <a href="contact.html">Contact</a>
 <a href="faq.html">FAQ</a>
 </nav>
+
 </header>
 
-<!-- ABOUT -->
-<section class="section">
-<h2>About Elite Start Company</h2>
+<!-- HERO -->
+
+<section class="hero">
+
+<h2>Elite Start Company</h2>
 
 <p>
-Elite Start Company is an organization dedicated to assisting individuals who have been affected by investment scams and financial losses.
-Our mission is to help clients regain hope by guiding them through professional recovery processes.
+Elite Start Company is dedicated to helping people with professional case assistance,
+guidance, and support. We work hard to connect every suitable case with a suitable lawyer
+to ensure professional handling and trusted legal processes.
 </p>
 
-<p>
-Elite Start Company works to connect each case with a suitable lawyer, ensuring that every matter receives proper legal attention and professional handling.
-</p>
+<button>Get Started</button>
 
 </section>
 
-<!-- MISSION -->
-<section class="section" style="background:white;">
-<h2>Our Mission</h2>
+<!-- ABOUT -->
+
+<section class="section">
+
+<div class="section-title">
+<h2>About Elite Start</h2>
+</div>
+
+<div class="about-box">
+
 <p>
-To restore dignity, trust, and financial stability by assisting clients through structured recovery support and professional legal coordination.
+Elite Start Company focuses on assisting people through professional support and legal
+guidance. Our company believes every case deserves proper attention and the right legal
+representation. We carefully work to get a suitable lawyer for a suitable case while
+maintaining professionalism, trust, and dignity in every process.
 </p>
 
-<h2>Our Vision</h2>
-<p>
-To become a trusted organization in South Africa known for supporting victims of financial fraud and helping communities rebuild confidence in their future.
-</p>
+</div>
+
 </section>
 
 <!-- STAFF -->
+
 <section class="section">
-<h2>Leadership Team</h2>
+
+<div class="section-title">
+<h2>Our Staff Members</h2>
+</div>
 
 <div class="staff-container">
 
 <div class="staff-card">
-<img src="images/stuff1.png" alt="CEO">
+<img src="images/stuff1.png" alt="">
 <h3>Michael Ndebele</h3>
-<p>Chief Executive Officer</p>
+<p>CEO</p>
 </div>
 
 <div class="staff-card">
-<img src="images/stuff2.png" alt="Administrator">
+<img src="images/stuff.png" alt="">
 <h3>Fezeka Sibisi</h3>
 <p>Administrator</p>
 </div>
 
 </div>
+
 </section>
 
-<!-- TEST IMAGES -->
-<section class="section" style="background:white;">
-<h2>Our Work</h2>
+<!-- IMPACT -->
 
-<div class="test-container">
-<img src="images/test1.png">
-<img src="images/test2.png">
-<img src="images/test3.png">
-<img src="images/test4.png">
+<section class="section impact">
+
+<div class="section-title">
+<h2 style="color:white;">Impect in the Society</h2>
+</div>
+
+<div class="impact-container">
+
+<div class="counter-box">
+<h3 id="years">0</h3>
+<p>Years of Service</p>
+</div>
+
+<div class="counter-box">
+<h3 id="clients">0</h3>
+<p>Clients Assisted</p>
+</div>
+
 </div>
 
 </section>
 
-<!-- VALUES -->
-<section class="section">
-<h2>Our Core Values</h2>
+<!-- CASE SEARCH -->
 
-<p><strong>Integrity:</strong> We operate with honesty and transparency.</p>
-<p><strong>Professionalism:</strong> Every case is handled responsibly.</p>
-<p><strong>Client Support:</strong> We prioritize people and their recovery journey.</p>
-<p><strong>Commitment:</strong> Dedicated to delivering reliable assistance.</p>
+<section class="section">
+
+<div class="section-title">
+<h2>Search Case Reference</h2>
+</div>
+
+<div class="search-box">
+
+<input type="text" id="searchInput" placeholder="Enter Case Reference">
+
+<button onclick="searchCase()">Search</button>
+
+<div class="result" id="resultBox">
+
+<div class="result-card">
+<h3>Mr L Weavers</h3>
+<p>Case Reference: ESCR-23541</p>
+<p class="status">Claimed Successfully</p>
+</div>
+
+</div>
+
+</div>
 
 </section>
 
+<!-- TESTIMONIALS -->
+
+<section class="section">
+
+<div class="section-title">
+<h2>Testimonials</h2>
+</div>
+
+<div class="testimonial-container">
+
+<div class="testimonial-slide active">
+<img src="images/test1.png" alt="">
+<h3>James Peterson</h3>
+<p>
+"Elite Start Company handled everything professionally and kept me informed throughout the process."
+</p>
+</div>
+
+<div class="testimonial-slide">
+<img src="images/test2.png" alt="">
+<h3>Sarah Mokoena</h3>
+<p>
+"The staff was supportive and respectful. I truly appreciate the assistance I received."
+</p>
+</div>
+
+<div class="testimonial-slide">
+<img src="images/test3.png" alt="">
+<h3>David Khumalo</h3>
+<p>
+"Very trustworthy company with excellent communication and professional service."
+</p>
+</div>
+
+<div class="testimonial-slide">
+<img src="images/test4.png" alt="">
+<h3>Linda Jacobs</h3>
+<p>
+"Elite Start restored my confidence with their dedication and guidance."
+</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="section contact">
+
+<div class="section-title">
+<h2 style="color:white;">Contact Details</h2>
+</div>
+
+<p>Email: admin@elitestartt.com</p>
+<p>Email: ceo@elitestartt.com</p>
+<p>Email: attorney@elitestartt.com</p>
+<p>Tell: 033 205 0689</p>
+
+</section>
+
+<!-- FOOTER -->
+
 <footer>
-<p>© 2026 Elite Start Company</p>
+
+<p>© 2026 Elite Start Company. All Rights Reserved.</p>
+
 </footer>
+
+<script>
+
+/* COUNTER ANIMATION */
+
+let years = document.getElementById("years");
+let clients = document.getElementById("clients");
+
+let yearCount = 0;
+let clientCount = 0;
+
+let yearInterval = setInterval(() => {
+
+yearCount++;
+years.innerHTML = yearCount;
+
+if(yearCount == 3){
+clearInterval(yearInterval);
+}
+
+}, 800);
+
+let clientInterval = setInterval(() => {
+
+clientCount++;
+clients.innerHTML = clientCount;
+
+if(clientCount == 150){
+clearInterval(clientInterval);
+}
+
+}, 20);
+
+/* CASE SEARCH */
+
+function searchCase(){
+
+let input = document.getElementById("searchInput").value;
+let result = document.getElementById("resultBox");
+
+if(input === "ESCR-23541"){
+result.style.display = "block";
+}else{
+result.style.display = "none";
+alert("No case found.");
+}
+
+}
+
+/* TESTIMONIAL SLIDER */
+
+let slides = document.querySelectorAll(".testimonial-slide");
+let current = 0;
+
+function showSlides(){
+
+slides.forEach(slide => slide.classList.remove("active"));
+
+current++;
+
+if(current > slides.length){
+current = 1;
+}
+
+slides[current - 1].classList.add("active");
+
+}
+
+setInterval(showSlides, 3000);
+
+</script>
 
 </body>
 </html>
